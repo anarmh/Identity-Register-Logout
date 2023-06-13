@@ -1,0 +1,105 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "SignUp";
+}
+@section Css{
+         <link rel="stylesheet" href="~/assets/scss/Account/account.css">
+}
+ <main>
+        <section id="links">
+            <div class="container">
+                <div class="all-links">
+                    <a href="./home.html">Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <a href="">Pages</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Login</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="register">
+            <div class="all">
+                <div class="register-part">
+                    <div class="upregister">
+                        <div class="tab-menu">
+                            <div class="for-names">
+                                <div class="names">
+                                    <h4 data-id="1" class="for-sign active-sign">Sign In</h4>
+                                    <h4 data-id="2" class="for-register">Register</h4>
+                                </div>
+                            </div>
+                            <div class="infos">
+                                <div data-id="1" class="for-sign elems">
+                                    <label for="username">Username or email address *</label>
+                                    <input type="text" placeholder="" name="username" class="inputs">
+
+                                    <label for="passwords">Password *</label>
+                                    <input type="password" placeholder="" name="passwords" class="inputs">
+
+                                    <div class="buttons">
+                                        <button type="submit">Log In<i class="fa-solid fa-arrow-right-long"></i></button>
+                                        <div class="checkpart">
+                                            <input type="checkbox">
+                                            <label for="">Remember Me</label>
+                                        </div>
+                                        <span>Forgot Your Password?</span>
+                                    </div>
+                                </div>
+                                <div data-id="2" class="for-register elems d-none">
+                                     <div class="text-danger" asp-validation-summary="All"></div>
+                                    <form asp-controller="Account" asp-action="SignUp" method="post">
+                                              <label >Your FullName *</label><br />
+                                             <input asp-for="FullName" class="inputs d-block" style="width:100%;">
+                                             <span class="text-danger d-block" asp-validation-for="FullName"></span>
+
+                                             <label>Your Username *</label><br />
+                                             <input asp-for="Username" class="inputs d-block" style="width:100%;">
+                                             <span class="text-danger  d-block" asp-validation-for="Username"></span>
+
+                                             <label for="email">Your email address *</label><br />
+                                             <input asp-for="Email" placeholder=""  class="inputs d-block" style="width:100%;">
+                                             <span class="text-danger  d-block" asp-validation-for="Email"></span>
+
+                                             <label for="passwords">Password *</label>
+                                            <input asp-for="Password" placeholder=""  class="inputs d-block" style="width:100%;">
+                                             <span class="text-danger  d-block" asp-validation-for="Password"></span>
+
+                                             <label for="passwords">Repeat Password *</label>
+                                             <input asp-for="RepeatPassword" placeholder=""  class="inputs d-block" style="width:100%;">
+                                             <span class="text-danger  d-block" asp-validation-for="RepeatPassword"></span>
+                                         <div class="buttons">
+                                            <button type="submit">Sign Up<i class="fa-solid fa-arrow-right-long"></i></button>
+                                                 <div class="check">
+                                                 <input type="checkbox">
+                                                 <label for="">I agree to the privacy policy *</label>
+                                              </div>
+                                         </div>
+                                    </form>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-options">
+                        <span>or sign in with</span>
+                        <div class="choice">
+                            <a href=""><i class="fa-brands fa-google"></i><p>Login With Google</p></a>
+                            <a href=""><i class="fa-brands fa-facebook-f"></i><p>Login With Facebook</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scrollBtn">
+            <div class="btn">
+                <i class="fa-solid fa-arrow-up-long"></i>
+            </div>
+        </section>
+    </main>
+
+@section Scripts{
+         <script src="~/assets/js/account.js"></script>
+         <partial name="_ValidationScriptsPartial" />
+}
